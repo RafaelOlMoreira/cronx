@@ -52,13 +52,13 @@ function Header() {
 
                     }`}>
                     <ul className='text-white text-center space-y-5 text-xl'>
-                        <li className='hover:cursor-pointer' id='#' onClick={toggleMenu}>Home</li>
-                        <li className='hover:cursor-pointer' id='#' onClick={toggleMenu}>Services</li>
-                        <li className='hover:cursor-pointer' id='#' onClick={toggleMenu}>Solutions</li>
-                        <li className='hover:cursor-pointer' id='#' onClick={toggleMenu}>Portifolio</li>
-                        <li className='hover:cursor-pointer' id='#' onClick={toggleMenu}>Pricing</li>
-                        <li className='hover:cursor-pointer' id='#' onClick={toggleMenu}>About</li>
-                        <li className='hover:cursor-pointer' id='#' onClick={toggleMenu}>Contact</li>
+                        <li><span className='hover:cursor-pointer' id='#Home' onClick={toggleMenu}>Home</span></li>
+                        <li><span className='hover:cursor-pointer' id='#' onClick={toggleMenu}>Services</span></li>
+                        <li><span className='hover:cursor-pointer' id='#' onClick={toggleMenu}>Solutions</span></li>
+                        <li><span className='hover:cursor-pointer' id='#' onClick={toggleMenu}>Portifolio</span></li>
+                        <li><span className='hover:cursor-pointer' id='#' onClick={toggleMenu}>Pricing</span></li>
+                        <li><span className='hover:cursor-pointer' id='#' onClick={toggleMenu}>About</span></li>
+                        <li><span className='hover:cursor-pointer' id='#' onClick={toggleMenu}>Contact</span></li>
                         <button className='bg-white p-4 px-20 rounded-lg transition duration-300 hover:scale-105'>
                             <span className='text-black text-lg'>Get a Quote</span>
                         </button>

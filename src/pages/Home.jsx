@@ -1,9 +1,9 @@
 import React from 'react'
-import Particles from '../assets/background/Particles';
+import Particles from '../assets/Particles';
 
 function Home() {
     return (
-        <section className='relative min-h-screen'>
+        <section className='relative min-h-screen' id='#Home'>
             <div className='absolute inset-0 -z-5 bg-black'>
                 <Particles
                     particleColors={["#a1a1a1"]}
