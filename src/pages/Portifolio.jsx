@@ -7,7 +7,7 @@ import { HiArrowSmRight } from "react-icons/hi";
 
 function Portifolio() {
     return (
-        <div className='min-h-min bg-gradient-to-b from-[#0F172A] to-black py-30 px-5 text-center'>
+        <div className='min-h-min bg-linear-to-b from-[#0F172A] to-black py-30 px-5 text-center'>
             <div className='space-y-2 mb-20'>
                 <p className='text-[#b7bac0] text-md uppercase'>FEATURED WORK</p>
                 <h1 className='text-4xl text-white font-bold'>Projects That Deliver</h1>
