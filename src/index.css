@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+/* src/styles/index.css */
+.bg-plus-pattern {
+    background-image: url('/plus.svg');
+    /* arquivo em public/ */
+    background-repeat: repeat;
+    background-size: 100px 100px;
+    /* espaçamento entre os + */
+    background-position: center;
+}
+
+/* mobile: reduzir espaçamento */
+@media (max-width: 640px) {
+    .bg-plus-pattern {
+        background-size: 30px 30px;
+    }
+}

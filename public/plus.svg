@@ -1,0 +1,8 @@
+<!-- public/plus-large.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="300" height="300" preserveAspectRatio="xMidYMid meet">
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.02" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- o + está centralizado entre 120 e 180 (espaço enorme à volta) -->
+    <path d="M150 120 V180"/>
+    <path d="M120 150 H180"/>
+  </g>
+</svg>
