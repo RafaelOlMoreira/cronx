@@ -1,18 +1,35 @@
 @import "tailwindcss";
 
-/* src/styles/index.css */
-.bg-plus-pattern {
-    background-image: url('/plus.svg');
-    /* arquivo em public/ */
-    background-repeat: repeat;
-    background-size: 100px 100px;
-    /* espaçamento entre os + */
-    background-position: center;
+.slick-slide>div {
+    margin: 0 10px;
 }
 
-/* mobile: reduzir espaçamento */
-@media (max-width: 640px) {
-    .bg-plus-pattern {
-        background-size: 30px 30px;
-    }
+/* minimal react-slick dots */
+.slick-dots li button:before {
+    display: none
+}
+
+.slick-dots {
+    display: flex;
+    gap: 21px;
+    justify-content: center;
+    padding: 0;
+    margin: 20px 0 20px 0;
+    list-style: none
+}
+
+.slick-dots li.slick-dots {
+    width: 12px;
+    height: 12px;
+    border-radius: 9999px;
+    background: #b7d6fd;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.slick-dots li.slick-active button {
+    background: #c4cfd4 !important;
+    transform: scale(1.2);
 }

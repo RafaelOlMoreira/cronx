@@ -7,19 +7,16 @@ import Solutions from './pages/Solutions'
 import Portifolio from './pages/Portifolio'
 import Feedback from './pages/Feedback'
 
-const slideFeedback = [
-  ""
-]
-
 function App() {
+
   return (
     <>
-    <Header />
-    <Home />
-    <Services />
-    <Solutions />
-    <Portifolio />
-    <Feedback />
+      <Header />
+      <Home />
+      <Services />
+      <Solutions />
+      <Portifolio />
+      <Feedback />
     </>
   )
 }
