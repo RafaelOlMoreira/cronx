@@ -27,7 +27,7 @@ function Pricing() {
                             </div>
                             <div className='pb-5'>
                                 <button className='border border-white p-3 text-md text-white w-full rounded-lg hover:cursor-pointer transition duration-300 hover:bg-white hover:text-black'>
-                                    <span className=''>{d.button}</span>
+                                    <span className=''>Contact for Pricing</span>
                                 </button>
                             </div>
                         </div>
@@ -47,7 +47,6 @@ const data = [
         topico2: `Fixed timeline`,
         topico3: `Milestone-based payments`,
         topico4: `Dedicated project manager`,
-        button: `Contact for Pricing`,
     },
     {
         titulo: `Retainer`,
@@ -56,7 +55,6 @@ const data = [
         topico2: `Priority support`,
         topico3: `Flexible scope adjustments`,
         topico4: `Regular sprint cycles`,
-        button: `Contact for Pricing`,
     },
     {
         titulo: `Custom`,
@@ -65,7 +63,6 @@ const data = [
         topico2: `Scalable team size`,
         topico3: `Flexible payment terms`,
         topico4: `Enterprise-level support`,
-        button: `Contact for Pricing`,
     },
 ]
 
