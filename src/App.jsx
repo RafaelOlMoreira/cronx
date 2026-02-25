@@ -7,6 +7,7 @@ import Solutions from './pages/Solutions'
 import Portifolio from './pages/Portifolio'
 import Feedback from './pages/Feedback'
 import Pricing from './pages/Pricing'
+import Contact from './pages/Contact'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
       <Portifolio />
       <Feedback />
       <Pricing />
+      <Contact />
     </>
   )
 }
