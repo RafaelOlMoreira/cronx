@@ -71,12 +71,12 @@ function Contact() {
                     <input type="email" placeholder='Email Address *' className='w-full p-5 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl rounded-xl' />
                     <input type="tel" placeholder='Phone (Optional)' className='w-full p-5 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl rounded-xl' />
                     
-                    <select name="selectService" className='w-full p-5 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl rounded-xl'>
-                        <option disabled className='select-none text-white text-sm bg-[#0F172A]'>Select Service Type *</option>
-                        <option className='text-white text-sm bg-[#0F172A]'>Custom Software</option>
-                        <option className='text-white text-sm bg-[#0F172A]'>Landing Page</option>
-                        <option className='text-white text-sm bg-[#0F172A]'>E-commerce</option>
-                        <option className='text-white text-sm bg-[#0F172A]'>Other</option>
+                    <select defaultValue="selectService" name="selectService" className='w-full p-5 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl rounded-xl'>
+                        <option value="selectService" disabled className='select-none text-white text-sm bg-[#0F172A]'>Select Service Type *</option>
+                        <option value="customSoftware" className='text-white text-sm bg-[#0F172A]'>Custom Software</option>
+                        <option value="landingPage" className='text-white text-sm bg-[#0F172A]'>Landing Page</option>
+                        <option value="eCommerce" className='text-white text-sm bg-[#0F172A]'>E-commerce</option>
+                        <option value="other" className='text-white text-sm bg-[#0F172A]'>Other</option>
                     </select>
 
                     <div>
