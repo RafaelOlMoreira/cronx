@@ -31,46 +31,31 @@ function Contact() {
 
     return (
         <>
-            <section className='min-h-min bg-[#0F172A] py-20 px-7'>
+            <section className='min-h-min bg-[#0F172A] pt-20 pb-10 px-5'>
                 <div className='space-y-2 mb-20 text-center'>
                     <h1 className='text-4xl text-white font-bold'>Let's Build Something Great</h1>
                     <p className='text-[#b7bac0] text-lg px-5'>Tell us about your project and we'll get back within 24 hours.</p>
                 </div>
+
                 <div className='space-y-5'>
-
-                    <div className='flex items-center space-x-5 text-white'>
-                        <HiOutlinePhone className='size-6' />
-                        <div className=''>
-                            <p className='text-[#b7bac0] text-md'>Phone</p>
-                            <span className='font-semibold text-lg'>+55 31 99247-9530</span>
+                    {data.map((d) => (
+                        <div className='flex items-center space-x-5 text-white'>
+                            {d.icon}
+                            <div className=''>
+                                <p className='text-[#b7bac0] text-md'>{d.typeContact}</p>
+                                <span className='font-semibold text-lg'>{d.contact}</span>
+                            </div>
                         </div>
-                    </div>
-
-                    <div className='flex items-center space-x-5 text-white'>
-                        <HiOutlineMail className='size-6' />
-                        <div className=''>
-                            <p className='text-[#b7bac0] text-md'>Email</p>
-                            <span className='font-semibold text-lg'>cronx.oficial@gmail.com</span>
-                        </div>
-                    </div>
-
-                    <div className='flex items-center space-x-5 text-white'>
-                        <HiOutlineLocationMarker className='size-6' />
-                        <div className=''>
-                            <p className='text-[#b7bac0] text-md'>Location</p>
-                            <span className='font-semibold text-[#b7bac0] text-lg'>Belo Horizonte, MG, Brazil</span>
-                        </div>
-                    </div>
-
+                    ))}
                 </div>
 
                 <form action="" className='mt-10 space-y-5'>
-                    
+
                     <input type="text" placeholder='Your Name *' className='w-full p-5 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl rounded-xl' />
                     <input type="text" placeholder='Company Name *' className='w-full p-5 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl rounded-xl' />
                     <input type="email" placeholder='Email Address *' className='w-full p-5 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl rounded-xl' />
                     <input type="tel" placeholder='Phone (Optional)' className='w-full p-5 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl rounded-xl' />
-                    
+
                     <select defaultValue="selectService" name="selectService" className='w-full p-5 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl rounded-xl'>
                         <option value="selectService" disabled className='select-none text-white text-sm bg-[#0F172A]'>Select Service Type *</option>
                         <option value="customSoftware" className='text-white text-sm bg-[#0F172A]'>Custom Software</option>
@@ -97,12 +82,30 @@ function Contact() {
                 <button className='bg-white p-4 text-xl w-full rounded-lg hover:cursor-pointer transition duration-300 hover:scale-105'>
                     <span className='font-bold'>Request a Proposal</span>
                 </button>
-                
+
                 <span className='flex justify-center text-[#b7bac0]/80 pt-5'>We respect your privacy. No spam, ever.</span>
-            
+
             </section>
         </>
     )
 }
+
+const data = [
+    {
+        icon: <HiOutlinePhone className='size-6' />,
+        typeContact: `Phone`,
+        contact: `+55 31 99247-9530`,
+    },
+    {
+        icon: <HiOutlineMail className='size-6' />,
+        typeContact: `Email`,
+        contact: `cronx.oficial@gmail.com`,
+    },
+    {
+        icon: <HiOutlineLocationMarker className='size-6' />,
+        typeContact: `Location`,
+        contact: `Belo Horizonte, MG, Brazil`,
+    },
+]
 
 export default Contact
