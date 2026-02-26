@@ -4,7 +4,7 @@ function Solutions() {
 
     return (
         <>
-            <section className="bg-plus-pattern bg-[#0F172A] min-h-auto text-white px-5 pt-50 pb-35">
+            <section className="bg-plus-pattern bg-[#0F172A] min-h-auto text-white px-5 pt-20 pb-10">
                 <div className='space-y-2 mb-15'>
                     <p className='text-[#b7bac0] text-md'>OUR PROCESS</p>
                     <h1 className='text-4xl text-white font-bold'>From Concept to Launch</h1>
