@@ -8,6 +8,7 @@ import Portifolio from './pages/Portifolio'
 import Feedback from './pages/Feedback'
 import Pricing from './pages/Pricing'
 import Contact from './pages/Contact'
+import Footer from './components/layout/Footer'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
       <Feedback />
       <Pricing />
       <Contact />
+      <Footer />
     </>
   )
 }
