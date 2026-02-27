@@ -10,14 +10,14 @@ function Services() {
 
                 <div className='text-center space-y-5'>
                     <p className='uppercase text-[#b7bac0] text-lg'>What We Do</p>
-                    <h1 className='text-4xl text-white font-bold'>Services Built for Scale</h1>
+                    <h1 className='text-4xl lg:text-5xl text-white font-bold'>Services Built for Scale</h1>
                     <p className='text-[#b7bac0] text-lg px-10'>End-to-end software solutions tailored to your business goals.</p>
                 </div>
 
-                <article className='px-5 pt-20 space-y-10'>
+                <article className='px-5 lg:px-32 pt-20 space-y-10 lg:flex lg:gap-x-10 lg:space-y-0'>
 
                     {data.map((d) => (
-                        <div className='group text-white bg-[#1b2335]/90 border border-[#a1a1a1]/30 rounded-xl p-10 transform duration-300 hover:shadow-2xl hover:-translate-y-1'>
+                        <div className='group text-white bg-[#1b2335]/90 border border-[#a1a1a1]/30 rounded-xl p-10 transform duration-300 hover:shadow-2xl hover:-translate-y-1 hover:cursor-pointer'>
                             <div>
                                 {d.icon}
                             </div>
