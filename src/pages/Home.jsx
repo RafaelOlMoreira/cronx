@@ -17,11 +17,11 @@ function Home() {
                     pixelRatio={1}
                 />
             </div>
-            <div className='relative h-screen flex flex-col justify-center mx-5 space-y-5'>
+            <div className='relative h-screen flex flex-col justify-center mx-5 lg:mx-15 space-y-5 lg:w-2/5'>
                     <h1 className='text-white text-5xl font-bold'>Custom Software That Drives Results</h1>
                     <p className='text-[#a1a1a1] text-xl'>Enterprise-grade solutions for ambitious businesses. From landing pages to full-stack systems.</p>
 
-                    <div className='space-y-4'>
+                    <div className='space-y-4 lg:space-y-0 lg:flex lg:gap-x-5'>
                         <button className='bg-white p-4 text-xl w-full rounded-lg hover:cursor-pointer transition duration-300 hover:scale-105'>
                             <span className='font-semibold'>Request a Proposal</span>
                         </button>
