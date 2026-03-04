@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { HiOutlinePhone, HiOutlineMail, HiOutlineLocationMarker } from "react-icons/hi";
 
 const MAX = 500;
+const API_BASE = import.meta.env.VITE_API_URL || ''; // '' usa proxy /api em dev
 
 function formatPhone(value) {
     const digits = value.replace(/\D/g, '').slice(0, 11);
@@ -36,18 +37,20 @@ function Contact() {
         setSending(true);
         try {
             const payload = { name, company, email, phone, service, aboutProject: message, whatsappConsent };
-            // SE você não configurou proxy no Vite, substitua por: 'http://localhost:4000/api/contact'
-            const resp = await fetch('/api/contact', {
+            // monta a URL de envio: se API_BASE estiver vazia (dev com proxy) usa '/api/contact'
+            const url = API_BASE ? `${API_BASE.replace(/\/$/, '')}/api/contact` : '/api/contact';
+
+            const resp = await fetch(url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
             });
 
             const text = await resp.text();
-            let json;
-            try { json = JSON.parse(text); } catch { json = null; }
+            let json = null;
+            try { json = JSON.parse(text); } catch { } // se não for JSON, ignore
 
-            console.log('POST /api/contact status', resp.status, json || text);
+            console.log('POST', url, 'status', resp.status, json || text);
 
             if (resp.ok) {
                 alert('Mensagem enviada com sucesso — entraremos em contato em breve.');
@@ -89,6 +92,7 @@ function Contact() {
                 <div className='lg:col-span-2 lg:pl-10'>
 
                     <form onSubmit={handleSubmit} className='mt-10 lg:mt-0 space-y-5'>
+
                         <div className='space-y-5 lg:space-y-0 lg:flex lg:gap-5'>
                             <input required value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder='Your Name *' className='w-full p-5 lg:px-5 lg:p-3 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl lg:text-lg rounded-xl' />
                             <input value={company} onChange={(e) => setCompany(e.target.value)} type="text" placeholder='Company Name' className='w-full p-5 lg:px-5 lg:p-3 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl lg:text-lg rounded-xl' />
