@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import { HiOutlinePhone, HiOutlineMail, HiOutlineLocationMarker } from "react-icons/hi";
 
+const MAX = 500;
+
 function formatPhone(value) {
     const digits = value.replace(/\D/g, '').slice(0, 11);
     if (digits.length <= 2) return `(${digits}`;
@@ -10,32 +12,6 @@ function formatPhone(value) {
 }
 
 function Contact() {
-
-    const MAX = 500;
-    const [text, setText] = useState("");
-
-    function handleChange(e) {
-        const v = e.target.value.slice(0, MAX); // limite
-        setText(v);
-    }
-
-    function handlePaste(e) {
-        const paste = (e.clipboardData || window.clipboardData).getData("text");
-        const allowed = MAX - text.length;
-        if (paste.length > allowed) {
-            e.preventDefault();
-            const ta = e.target;
-            const start = ta.selectionStart;
-            const end = ta.selectionEnd;
-            const newVal = text.slice(0, start) + paste.slice(0, allowed) + text.slice(end);
-            setText(newVal);
-        }
-    }
-
-    const remaining = MAX - text.length;
-    const color =
-        remaining === 0 ? "text-red-500" : remaining <= 50 ? "text-amber-500" : "text-[#b7bac0]";
-
 
     const [name, setName] = useState('');
     const [company, setCompany] = useState('');
@@ -60,21 +36,27 @@ function Contact() {
         setSending(true);
         try {
             const payload = { name, company, email, phone, service, aboutProject: message, whatsappConsent };
+            // SE você não configurou proxy no Vite, substitua por: 'http://localhost:4000/api/contact'
             const resp = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
             });
-            const data = await resp.json();
+
+            const text = await resp.text();
+            let json;
+            try { json = JSON.parse(text); } catch { json = null; }
+
+            console.log('POST /api/contact status', resp.status, json || text);
+
             if (resp.ok) {
                 alert('Mensagem enviada com sucesso — entraremos em contato em breve.');
                 setName(''); setCompany(''); setEmail(''); setPhone(''); setService('selectService'); setMessage(''); setWhatsappConsent(false);
             } else {
-                console.error(data);
-                alert('Erro: ' + (data.error || 'Não foi possível enviar. Tente novamente.'));
+                alert('Erro: ' + (json?.error || text || resp.status));
             }
         } catch (err) {
-            console.error(err);
+            console.error('Fetch error:', err);
             alert('Erro ao enviar. Verifique a conexão.');
         } finally {
             setSending(false);
@@ -105,7 +87,7 @@ function Contact() {
                 </div>
 
                 <div className='lg:col-span-2 lg:pl-10'>
-                    
+
                     <form onSubmit={handleSubmit} className='mt-10 lg:mt-0 space-y-5'>
                         <div className='space-y-5 lg:space-y-0 lg:flex lg:gap-5'>
                             <input required value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder='Your Name *' className='w-full p-5 lg:px-5 lg:p-3 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl lg:text-lg rounded-xl' />
