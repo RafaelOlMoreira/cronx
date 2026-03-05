@@ -7,7 +7,7 @@ const contactRoutes = require('./routes/contact');
 
 const app = express();
 
-// CORS: permite a origem definida em CLIENT_URL (ou localhost para dev)
+// CORS: permite a origem definida em CLIENT_URL (ou localhost)
 const clientUrl = process.env.CLIENT_URL || 'http://localhost:5173';
 app.use(cors({ origin: clientUrl, credentials: true }));
 
