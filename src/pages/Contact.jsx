@@ -14,6 +14,28 @@ function formatPhone(value) {
 
 function Contact() {
 
+    const [name, setName] = useState('');
+    const [company, setCompany] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [service, setService] = useState('selectService');
+    const [message, setMessage] = useState('');
+    const [whatsappConsent, setWhatsappConsent] = useState(false);
+
+    // UI
+    const [sending, setSending] = useState(false);
+    const [feedback, setFeedback] = useState(null);
+
+    const counterColor =
+        message.length >= MAX ? 'text-red-500' :
+            message.length > MAX * 0.9 ? 'text-amber-500' :
+                'text-[#b7bac0]';
+
+    function isValidPhone(phoneStr) {
+        const digits = phoneStr.replace(/\D/g, '');
+        return digits.length === 11;
+    }
+
     async function handleSubmit(e) {
         e.preventDefault();
         setFeedback(null);
