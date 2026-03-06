@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import emailjs from '@emailjs/browser';
 
 import { HiOutlinePhone, HiOutlineMail, HiOutlineLocationMarker } from "react-icons/hi";
 
@@ -13,12 +14,46 @@ function formatPhone(value) {
 
 function Contact() {
 
-    const [message, setMessage] = useState('');
+    async function handleSubmit(e) {
+        e.preventDefault();
+        setFeedback(null);
 
-    const counterColor =
-        message.length >= MAX ? 'text-red-500' :
-            message.length > MAX * 0.9 ? 'text-amber-500' :
-                'text-[#b7bac0]';
+        // validação frontend
+        if (!name.trim() || !email.trim() || !service || service === 'selectService' || !message.trim()) {
+            setFeedback({ type: 'error', text: 'Preencha todos os campos obrigatórios.' });
+            return;
+        }
+        if (message.length > MAX) {
+            setFeedback({ type: 'error', text: `Mensagem deve ter no máximo ${MAX} caracteres.` });
+            return;
+        }
+        if (phone.trim() && phone.replace(/\D/g, '').length !== 11) {
+            setFeedback({ type: 'error', text: 'Telefone inválido. Use o formato (XX) XXXXX-XXXX.' });
+            return;
+        }
+
+        setSending(true);
+        try {
+            const res = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, company, email, phone, service, message, whatsappConsent })
+            });
+
+            const data = await res.json();
+            if (res.ok) {
+                setFeedback({ type: 'success', text: 'Mensagem enviada com sucesso. Obrigado!' });
+                setName(''); setCompany(''); setEmail(''); setPhone(''); setService('selectService'); setMessage(''); setWhatsappConsent(false);
+            } else {
+                setFeedback({ type: 'error', text: data.error || 'Erro ao enviar a mensagem.' });
+            }
+        } catch (err) {
+            console.error(err);
+            setFeedback({ type: 'error', text: 'Erro na conexão. Tente novamente.' });
+        } finally {
+            setSending(false);
+        }
+    }
 
     return (
         <>
@@ -74,6 +109,12 @@ function Contact() {
                             <input type="checkbox" checked={whatsappConsent} onChange={e => setWhatsappConsent(e.target.checked)} />
                             <span className='text-[#b7bac0] text-md'>Aceito ser contatado por WhatsApp no telefone informado.</span>
                         </div>
+
+                        {feedback && (
+                            <div className={`pt-2 ${feedback.type === 'error' ? 'text-red-400' : 'text-green-400'}`}>
+                                {feedback.text}
+                            </div>
+                        )}
 
                         <div className='pt-4'>
                             <button type="submit" disabled={sending} className='bg-white p-4 text-xl lg:text-lg w-full rounded-lg hover:cursor-pointer transition duration-300 hover:scale-105'>
