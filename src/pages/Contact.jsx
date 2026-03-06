@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { HiOutlinePhone, HiOutlineMail, HiOutlineLocationMarker } from "react-icons/hi";
 
 const MAX = 500;
-const API_BASE = import.meta.env.VITE_API_URL || ''; // '' usa proxy /api em dev
 
 function formatPhone(value) {
     const digits = value.replace(/\D/g, '').slice(0, 11);
@@ -14,57 +13,12 @@ function formatPhone(value) {
 
 function Contact() {
 
-    const [name, setName] = useState('');
-    const [company, setCompany] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [service, setService] = useState('selectService');
     const [message, setMessage] = useState('');
-    const [whatsappConsent, setWhatsappConsent] = useState(false);
-    const [sending, setSending] = useState(false);
 
     const counterColor =
         message.length >= MAX ? 'text-red-500' :
             message.length > MAX * 0.9 ? 'text-amber-500' :
                 'text-[#b7bac0]';
-
-    async function handleSubmit(e) {
-        e.preventDefault();
-        if (!name.trim() || !email.trim() || !message.trim() || service === 'selectService') {
-            alert('Por favor preencha os campos obrigatórios.');
-            return;
-        }
-        setSending(true);
-        try {
-            const payload = { name, company, email, phone, service, aboutProject: message, whatsappConsent };
-            // monta a URL de envio: se API_BASE estiver vazia (dev com proxy) usa '/api/contact'
-            const url = API_BASE ? `${API_BASE.replace(/\/$/, '')}/api/contact` : '/api/contact';
-
-            const resp = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload),
-            });
-
-            const text = await resp.text();
-            let json = null;
-            try { json = JSON.parse(text); } catch { } // se não for JSON, ignore
-
-            console.log('POST', url, 'status', resp.status, json || text);
-
-            if (resp.ok) {
-                alert('Mensagem enviada com sucesso — entraremos em contato em breve.');
-                setName(''); setCompany(''); setEmail(''); setPhone(''); setService('selectService'); setMessage(''); setWhatsappConsent(false);
-            } else {
-                alert('Erro: ' + (json?.error || text || resp.status));
-            }
-        } catch (err) {
-            console.error('Fetch error:', err);
-            alert('Erro ao enviar. Verifique a conexão.');
-        } finally {
-            setSending(false);
-        }
-    }
 
     return (
         <>
