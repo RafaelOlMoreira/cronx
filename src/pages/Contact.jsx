@@ -142,12 +142,6 @@ function Contact() {
                             {statusMessage.text}
                         </div>
                     )}
-
-                    <div className='pt-4'>
-                        <button type="submit" disabled={sending} className='bg-white p-4 text-xl lg:text-lg w-full rounded-lg hover:cursor-pointer transition duration-300 hover:scale-105'>
-                            <span className='font-bold'>{sending ? 'Enviando...' : 'Request a Proposal'}</span>
-                        </button>
-                    </div>
                 </div>
 
                 <div className='pt-4'>
