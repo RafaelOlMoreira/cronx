@@ -21,57 +21,56 @@ function Contact() {
     const [service, setService] = useState('selectService');
     const [message, setMessage] = useState('');
     const [whatsappConsent, setWhatsappConsent] = useState(false);
-
-    // UI
     const [sending, setSending] = useState(false);
-    const [feedback, setFeedback] = useState(null);
+    const [statusMessage, setStatusMessage] = useState(null);
 
     const counterColor =
         message.length >= MAX ? 'text-red-500' :
             message.length > MAX * 0.9 ? 'text-amber-500' :
                 'text-[#b7bac0]';
 
-    function isValidPhone(phoneStr) {
-        const digits = phoneStr.replace(/\D/g, '');
-        return digits.length === 11;
-    }
-
     async function handleSubmit(e) {
         e.preventDefault();
-        setFeedback(null);
-
-        // validação frontend
-        if (!name.trim() || !email.trim() || !service || service === 'selectService' || !message.trim()) {
-            setFeedback({ type: 'error', text: 'Preencha todos os campos obrigatórios.' });
+        // client-side validation
+        if (!name.trim() || !email.trim() || service === 'selectService' || !message.trim()) {
+            setStatusMessage({ type: 'error', text: 'Por favor, preencha todos os campos obrigatórios (*) corretamente.' });
             return;
         }
         if (message.length > MAX) {
-            setFeedback({ type: 'error', text: `Mensagem deve ter no máximo ${MAX} caracteres.` });
+            setStatusMessage({ type: 'error', text: `A descrição deve ter no máximo ${MAX} caracteres.` });
             return;
         }
-        if (phone.trim() && phone.replace(/\D/g, '').length !== 11) {
-            setFeedback({ type: 'error', text: 'Telefone inválido. Use o formato (XX) XXXXX-XXXX.' });
-            return;
-        }
-
         setSending(true);
+        setStatusMessage(null);
+
         try {
-            const res = await fetch('/api/send-email', {
+            const payload = {
+                name: name.trim(),
+                company: company.trim(),
+                email: email.trim(),
+                phone: phone.trim(),
+                service,
+                message: message.trim(),
+                whatsappConsent
+            };
+
+            const res = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, company, email, phone, service, message, whatsappConsent })
+                body: JSON.stringify(payload)
             });
 
             const data = await res.json();
+
             if (res.ok) {
-                setFeedback({ type: 'success', text: 'Mensagem enviada com sucesso. Obrigado!' });
+                setStatusMessage({ type: 'success', text: data.message || 'Mensagem enviada com sucesso!' });
+                // limpa formulário
                 setName(''); setCompany(''); setEmail(''); setPhone(''); setService('selectService'); setMessage(''); setWhatsappConsent(false);
             } else {
-                setFeedback({ type: 'error', text: data.error || 'Erro ao enviar a mensagem.' });
+                setStatusMessage({ type: 'error', text: data.error || 'O envio falhou. Tente novamente mais tarde.' });
             }
         } catch (err) {
-            console.error(err);
-            setFeedback({ type: 'error', text: 'Erro na conexão. Tente novamente.' });
+            setStatusMessage({ type: 'error', text: 'Erro de rede. Verifique sua conexão.' });
         } finally {
             setSending(false);
         }
@@ -103,7 +102,6 @@ function Contact() {
                 <div className='lg:col-span-2 lg:pl-10'>
 
                     <form onSubmit={handleSubmit} className='mt-10 lg:mt-0 space-y-5'>
-
                         <div className='space-y-5 lg:space-y-0 lg:flex lg:gap-5'>
                             <input required value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder='Your Name *' className='w-full p-5 lg:px-5 lg:p-3 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl lg:text-lg rounded-xl' />
                             <input value={company} onChange={(e) => setCompany(e.target.value)} type="text" placeholder='Company Name' className='w-full p-5 lg:px-5 lg:p-3 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl lg:text-lg rounded-xl' />
@@ -132,12 +130,6 @@ function Contact() {
                             <span className='text-[#b7bac0] text-md'>Aceito ser contatado por WhatsApp no telefone informado.</span>
                         </div>
 
-                        {feedback && (
-                            <div className={`pt-2 ${feedback.type === 'error' ? 'text-red-400' : 'text-green-400'}`}>
-                                {feedback.text}
-                            </div>
-                        )}
-
                         <div className='pt-4'>
                             <button type="submit" disabled={sending} className='bg-white p-4 text-xl lg:text-lg w-full rounded-lg hover:cursor-pointer transition duration-300 hover:scale-105'>
                                 <span className='font-bold'>{sending ? 'Enviando...' : 'Request a Proposal'}</span>
@@ -145,12 +137,24 @@ function Contact() {
                         </div>
                     </form>
 
+                    {statusMessage && (
+                        <div className={`mt-4 p-3 rounded ${statusMessage.type === 'error' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
+                            {statusMessage.text}
+                        </div>
+                    )}
+
                     <div className='pt-4'>
-                        <span className='flex justify-center text-[#b7bac0]/80 pt-3 lg:text-sm'>We respect your privacy. No spam, ever.</span>
+                        <button type="submit" disabled={sending} className='bg-white p-4 text-xl lg:text-lg w-full rounded-lg hover:cursor-pointer transition duration-300 hover:scale-105'>
+                            <span className='font-bold'>{sending ? 'Enviando...' : 'Request a Proposal'}</span>
+                        </button>
                     </div>
                 </div>
 
-            </section>
+                <div className='pt-4'>
+                    <span className='flex justify-center text-[#b7bac0]/80 pt-3 lg:text-sm'>We respect your privacy. No spam, ever.</span>
+                </div>
+
+            </section >
         </>
     )
 }
