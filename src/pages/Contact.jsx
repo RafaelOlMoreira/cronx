@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 
 import { HiOutlinePhone, HiOutlineMail, HiOutlineLocationMarker } from "react-icons/hi";
 
@@ -67,9 +67,9 @@ function Contact() {
 
             // Substitua pelos seus IDs do EmailJS
             // Crie as variáveis de ambiente EMAILJS_USER_ID etc ou cole direto (menos seguro)
-            const SERVICE_ID = process.env.EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
-            const TEMPLATE_ID = process.env.EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
-            const USER_ID = process.env.EMAILJS_USER_ID || 'YOUR_USER_ID';
+            const SERVICE_ID = process.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+            const TEMPLATE_ID = process.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+            const USER_ID = process.env.VITE_EMAILJS_USER_ID || 'YOUR_USER_ID';
 
             await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, USER_ID);
 
