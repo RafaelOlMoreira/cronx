@@ -142,6 +142,7 @@ function Contact() {
                             {statusMessage.text}
                         </div>
                     )}
+                    
                 </div>
 
                 <div className='pt-4'>
