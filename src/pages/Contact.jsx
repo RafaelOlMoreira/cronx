@@ -79,7 +79,8 @@ function Contact() {
         } catch (err) {
             console.error(err);
             alert('Erro ao enviar a mensagem. Tente novamente mais tarde.');
-        } finally {
+        } 
+        finally {
             setSending(false);
         }
     }
