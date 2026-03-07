@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import emailjs from '@emailjs/browser';
+import emailjs from 'emailjs-com';
 
 import { HiOutlinePhone, HiOutlineMail, HiOutlineLocationMarker } from "react-icons/hi";
 
@@ -7,9 +7,19 @@ const MAX = 500;
 
 function formatPhone(value) {
     const digits = value.replace(/\D/g, '').slice(0, 11);
+    if (digits.length === 0) return '';
     if (digits.length <= 2) return `(${digits}`;
     if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
     return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+}
+
+function validateEmail(email) {
+    // validação simples
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function onlyDigits(value = '') {
+    return value.replace(/\D/g, '');
 }
 
 function Contact() {
@@ -18,11 +28,10 @@ function Contact() {
     const [company, setCompany] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const [service, setService] = useState('selectService');
+    const [service, setService] = useState('');
     const [message, setMessage] = useState('');
     const [whatsappConsent, setWhatsappConsent] = useState(false);
     const [sending, setSending] = useState(false);
-    const [statusMessage, setStatusMessage] = useState(null);
 
     const counterColor =
         message.length >= MAX ? 'text-red-500' :
@@ -31,46 +40,45 @@ function Contact() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        // client-side validation
-        if (!name.trim() || !email.trim() || service === 'selectService' || !message.trim()) {
-            setStatusMessage({ type: 'error', text: 'Por favor, preencha todos os campos obrigatórios (*) corretamente.' });
-            return;
+
+        // validações
+        if (!name.trim()) return alert('Por favor preencha o seu nome.');
+        if (!validateEmail(email)) return alert('Por favor insira um e-mail válido.');
+        if (!service) return alert('Por favor selecione um serviço.');
+        if (!message.trim()) return alert('Por favor descreva seu projeto.');
+
+        const phoneDigits = onlyDigits(phone);
+        if (whatsappConsent && phoneDigits.length < 10) {
+            return alert('Se deseja contato por WhatsApp, informe um telefone válido.');
         }
-        if (message.length > MAX) {
-            setStatusMessage({ type: 'error', text: `A descrição deve ter no máximo ${MAX} caracteres.` });
-            return;
-        }
+
         setSending(true);
-        setStatusMessage(null);
 
         try {
-            const payload = {
-                name: name.trim(),
-                company: company.trim(),
-                email: email.trim(),
-                phone: phone.trim(),
+            const templateParams = {
+                name,
+                company,
+                email,
+                phone,
                 service,
-                message: message.trim(),
-                whatsappConsent
+                message,
+                whatsappConsent: whatsappConsent ? 'Sim' : 'Não',
             };
 
-            const res = await fetch('/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
+            // Substitua pelos seus IDs do EmailJS
+            // Crie as variáveis de ambiente EMAILJS_USER_ID etc ou cole direto (menos seguro)
+            const SERVICE_ID = process.env.EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+            const TEMPLATE_ID = process.env.EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+            const USER_ID = process.env.EMAILJS_USER_ID || 'YOUR_USER_ID';
 
-            const data = await res.json();
+            await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, USER_ID);
 
-            if (res.ok) {
-                setStatusMessage({ type: 'success', text: data.message || 'Mensagem enviada com sucesso!' });
-                // limpa formulário
-                setName(''); setCompany(''); setEmail(''); setPhone(''); setService('selectService'); setMessage(''); setWhatsappConsent(false);
-            } else {
-                setStatusMessage({ type: 'error', text: data.error || 'O envio falhou. Tente novamente mais tarde.' });
-            }
+            alert('Mensagem enviada com sucesso! Entraremos em contato em até 24 horas.');
+            // limpa formulário
+            setName(''); setCompany(''); setEmail(''); setPhone(''); setService(''); setMessage(''); setWhatsappConsent(false);
         } catch (err) {
-            setStatusMessage({ type: 'error', text: 'Erro de rede. Verifique sua conexão.' });
+            console.error(err);
+            alert('Erro ao enviar a mensagem. Tente novamente mais tarde.');
         } finally {
             setSending(false);
         }
@@ -113,7 +121,7 @@ function Contact() {
                         </div>
 
                         <select value={service} onChange={(e) => setService(e.target.value)} required name="selectService" className='w-full p-5 lg:px-5 lg:p-4 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl lg:text-lg rounded-xl'>
-                            <option value="selectService" disabled className='select-none text-white text-sm bg-[#0F172A]'>Select Service Type *</option>
+                            <option value="" disabled className='select-none text-white text-sm bg-[#0F172A]'>Select Service Type *</option>
                             <option value="Custom Software" className='text-white text-sm bg-[#0F172A]'>Custom Software</option>
                             <option value="Landing Page" className='text-white text-sm bg-[#0F172A]'>Landing Page</option>
                             <option value="E-commerce" className='text-white text-sm bg-[#0F172A]'>E-commerce</option>
@@ -137,12 +145,6 @@ function Contact() {
                         </div>
                     </form>
 
-                    {statusMessage && (
-                        <div className={`mt-4 p-3 rounded ${statusMessage.type === 'error' ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
-                            {statusMessage.text}
-                        </div>
-                    )}
-                    
                 </div>
 
                 <div className='pt-4'>
