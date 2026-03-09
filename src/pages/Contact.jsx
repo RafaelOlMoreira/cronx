@@ -46,22 +46,24 @@ function Contact() {
 
         setSending(true);
 
+        // ... dentro da função sendEmail
+        const phoneDigits = phone.replace(/\D/g, ''); // Remove tudo que não é número
+
+        // Garante que o número comece com 55 (Brasil)
+        const phone_raw = phoneDigits.startsWith('55') ? phoneDigits : `55${phoneDigits}`;
+
         const templateParams = {
             from_name: name,
-            company: company,
+            company: company || "Não informado",
             email: email,
             phone: phone,
+            phone_raw: phone_raw,
             service: service,
             message: message,
             check: check ? "Sim" : "Não"
         }
 
-        emailjs.send(
-            import.meta.env.VITE_EMAILJS_SERVICE_ID,
-            import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-            templateParams,
-            import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-        )
+        emailjs.send(import.meta.env.VITE)
             .then((response) => {
                 console.log("Email enviado", response.status, response.text)
 
