@@ -55,7 +55,10 @@ function Contact() {
         // Variaveis:
         // ${name} = nome do cliente
         // ${service} = tipo de serviço escolhido
-        const messageText = `Olá ${name}, sou da Cronx. Recebi seu contato sobre ${service} e gostaria de conversar sobre o seu projeto.`;
+        const messageText = `Olá ${name},
+
+Somos a equipe da Cronx. Recebemos sua mensagem referente ao seu interesse em ${service}. 
+Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreender seus objetivos e apresentar uma proposta personalizada.`;
 
         // Transformamos em formato de link (o replace troca o %20 por +)
         const encodedMessage = encodeURIComponent(messageText).replace(/%20/g, '+');
@@ -166,10 +169,10 @@ function Contact() {
                             name="selectService"
                         >
                             <option value="" disabled className='select-none text-white text-sm bg-[#0F172A]'>Select Service Type *</option>
-                            <option value="Custom Software" className='text-white text-sm bg-[#0F172A]'>Custom Software</option>
-                            <option value="Landing Page" className='text-white text-sm bg-[#0F172A]'>Landing Page</option>
-                            <option value="E-commerce" className='text-white text-sm bg-[#0F172A]'>E-commerce</option>
-                            <option value="Other" className='text-white text-sm bg-[#0F172A]'>Other</option>
+                            <option value="um Software Customizado" className='text-white text-sm bg-[#0F172A]'>Custom Software</option>
+                            <option value="uma Landing Page" className='text-white text-sm bg-[#0F172A]'>Landing Page</option>
+                            <option value="um E-commerce" className='text-white text-sm bg-[#0F172A]'>E-commerce</option>
+                            <option value="Outro Serviço" className='text-white text-sm bg-[#0F172A]'>Other</option>
                         </select>
 
                         <div>
