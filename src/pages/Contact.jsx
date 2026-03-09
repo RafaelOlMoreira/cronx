@@ -5,6 +5,7 @@ import { HiOutlinePhone, HiOutlineMail, HiOutlineLocationMarker } from "react-ic
 
 const MAX = 500;
 
+// input formatado para usuario digitar apenas número e ficar no formato padrão no frontend
 function formatPhone(value) {
     const digits = value.replace(/\D/g, '').slice(0, 11);
     if (digits.length === 0) return '';
@@ -25,6 +26,7 @@ function Contact() {
 
     const [sending, setSending] = useState(false)
 
+    // função para mostrar que os caracteres na descrição estão acabando
     const counterColor =
         message.length >= MAX ? 'text-red-500' :
             message.length > MAX * 0.9 ? 'text-amber-500' :
@@ -46,11 +48,17 @@ function Contact() {
 
         setSending(true);
 
-        // ... dentro da função sendEmail
-        const phoneDigits = phone.replace(/\D/g, ''); // Remove tudo que não é número
-
-        // Garante que o número comece com 55 (Brasil)
+        const phoneDigits = phone.replace(/\D/g, '');
         const phone_raw = phoneDigits.startsWith('55') ? phoneDigits : `55${phoneDigits}`;
+
+        // Mensagem para enviar ao cliente
+        // Variaveis:
+        // ${name} = nome do cliente
+        // ${service} = tipo de serviço escolhido
+        const messageText = `Olá ${name}, sou da Cronx. Recebi seu contato sobre ${service} e gostaria de conversar sobre o seu projeto.`;
+
+        // Transformamos em formato de link (o replace troca o %20 por +)
+        const encodedMessage = encodeURIComponent(messageText).replace(/%20/g, '+');
 
         const templateParams = {
             from_name: name,
@@ -58,10 +66,11 @@ function Contact() {
             email: email,
             phone: phone,
             phone_raw: phone_raw,
-            service: service,
+            whatsapp_link_data: encodedMessage,
+            services: service,
             message: message,
             check: check ? "Sim" : "Não"
-        }
+        };
 
         emailjs.send(
             import.meta.env.VITE_EMAILJS_SERVICE_ID,
