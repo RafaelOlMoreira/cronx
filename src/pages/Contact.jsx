@@ -52,10 +52,10 @@ function Contact() {
         const phone_raw = phoneDigits.startsWith('55') ? phoneDigits : `55${phoneDigits}`;
 
         const service_label = {
-            custom_software: 'um *Sofware Customizado*.',
-            landing_page: 'uma *Landing Page*.',
-            ecommerce: 'um *E-commerce* (loja online).',
-            other: 'um *Outro Serviço*.',
+            custom_software: 'um *Sofware Customizado*',
+            landing_page: 'uma *Landing Page*',
+            ecommerce: 'um *E-commerce* (loja online)',
+            other: 'um *Outro Serviço*',
         }
 
         // Mensagem para enviar ao cliente
