@@ -63,7 +63,12 @@ function Contact() {
             check: check ? "Sim" : "Não"
         }
 
-        emailjs.send(import.meta.env.VITE)
+        emailjs.send(
+            import.meta.env.VITE_EMAILJS_SERVICE_ID,
+            import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+            templateParams,
+            import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        )
             .then((response) => {
                 console.log("Email enviado", response.status, response.text)
 
