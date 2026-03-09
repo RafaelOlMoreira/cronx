@@ -51,13 +51,21 @@ function Contact() {
         const phoneDigits = phone.replace(/\D/g, '');
         const phone_raw = phoneDigits.startsWith('55') ? phoneDigits : `55${phoneDigits}`;
 
+        const service_label = {
+            custom_software: 'um *Sofware Customizado*.',
+            landing_page: 'uma *Landing Page*.',
+            ecommerce: 'um *E-commerce* (loja online).',
+            other: 'um *Outro Serviço*.',
+        }
+
         // Mensagem para enviar ao cliente
         // Variaveis:
         // ${name} = nome do cliente
         // ${service} = tipo de serviço escolhido
         const messageText = `Olá ${name},
 
-Somos a equipe da Cronx. Recebemos sua mensagem referente ao seu interesse em ${service}. 
+Somos a equipe da *Cronx*. Recebemos sua mensagem referente ao seu interesse em ${service_label}. 
+
 Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreender seus objetivos e apresentar uma proposta personalizada.`;
 
         // Transformamos em formato de link (o replace troca o %20 por +)
@@ -169,10 +177,10 @@ Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreen
                             name="selectService"
                         >
                             <option value="" disabled className='select-none text-white text-sm bg-[#0F172A]'>Select Service Type *</option>
-                            <option value="um Software Customizado" className='text-white text-sm bg-[#0F172A]'>Custom Software</option>
-                            <option value="uma Landing Page" className='text-white text-sm bg-[#0F172A]'>Landing Page</option>
-                            <option value="um E-commerce" className='text-white text-sm bg-[#0F172A]'>E-commerce</option>
-                            <option value="Outro Serviço" className='text-white text-sm bg-[#0F172A]'>Other</option>
+                            <option value="custom_software" className='text-white text-sm bg-[#0F172A]'>Custom Software</option>
+                            <option value="landing_page" className='text-white text-sm bg-[#0F172A]'>Landing Page</option>
+                            <option value="ecommerce" className='text-white text-sm bg-[#0F172A]'>E-commerce</option>
+                            <option value="other" className='text-white text-sm bg-[#0F172A]'>Other</option>
                         </select>
 
                         <div>
