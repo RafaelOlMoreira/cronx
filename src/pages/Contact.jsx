@@ -65,7 +65,7 @@ function Contact() {
         const messageText =
         `Olá ${name},
 
-Somos a equipe da *Cronx*. Recebemos sua mensagem referente ao seu interesse em ${service_label}. 
+Somos a equipe da *Cronx*. Recebemos sua mensagem referente ao seu interesse em ${service_label[service]}. 
 
 Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreender seus objetivos e apresentar uma proposta personalizada.`;
 
@@ -80,7 +80,7 @@ Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreen
             phone_raw: phone_raw,
             whatsapp_link_data: encodedMessage,
             services: service,
-            service_label: service_label,
+            service_label: service_label[service],
             message: message,
             check: check ? "Sim" : "Não"
         };
