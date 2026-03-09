@@ -52,18 +52,6 @@ function Contact() {
         // Garante que o número comece com 55 (Brasil)
         const phone_raw = phoneDigits.startsWith('55') ? phoneDigits : `55${phoneDigits}`;
 
-        // 3) monte a mensagem que vai no WhatsApp (texto legível)
-        const whatsappMessage = `Olá ${from_name},
-
-Somos a equipe da Cronx. Recebemos sua solicitação sobre ${service} e agradecemos o contato. Gostaríamos de agendar uma breve reunião para entender seus objetivos e apresentar uma proposta.`;
-
-        // 4) encode apenas o texto
-        const encodedText = encodeURIComponent(whatsappMessage);
-
-        // 5) monte o link completo
-        const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneDigits}&text=${encodedText}`;
-
-
         const templateParams = {
             from_name: name,
             company: company || "Não informado",
@@ -72,8 +60,7 @@ Somos a equipe da Cronx. Recebemos sua solicitação sobre ${service} e agradece
             phone_raw: phone_raw,
             service: service,
             message: message,
-            check: check ? "Sim" : "Não",
-            whatsapp_link: whatsappLink 
+            check: check ? "Sim" : "Não"
         }
 
         emailjs.send(
