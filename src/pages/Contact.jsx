@@ -62,11 +62,12 @@ function Contact() {
         // Variaveis:
         // ${name} = nome do cliente
         // ${service} = tipo de serviço escolhido
-        const messageText = `Olá ${name},
+        const messageText =
+        `Olá ${name},
 
-Somos a equipe da *Cronx*. Recebemos sua mensagem referente ao seu interesse em ${service_label}. 
+        Somos a equipe da *Cronx*. Recebemos sua mensagem referente ao seu interesse em ${service_label}. 
 
-Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreender seus objetivos e apresentar uma proposta personalizada.`;
+        Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreender seus objetivos e apresentar uma proposta personalizada.`;
 
         // Transformamos em formato de link (o replace troca o %20 por +)
         const encodedMessage = encodeURIComponent(messageText).replace(/%20/g, '+');
