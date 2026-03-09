@@ -18,12 +18,13 @@ function Services() {
                 </div>
 
                 <article
-                    data-aos="fade-up"
-                    data-aos-duration="1500"
                     className='px-5 lg:px-32 pt-20 space-y-10 lg:flex lg:gap-x-10 lg:space-y-0'>
 
                     {data.map((d) => (
-                        <div className='group text-white bg-[#1b2335]/90 border border-[#a1a1a1]/30 rounded-xl p-10 transform duration-300 hover:shadow-2xl hover:-translate-y-1 hover:cursor-pointer'>
+                        <div
+                            data-aos="fade-up"
+                            data-aos-duration="1500"
+                            className='group text-white bg-[#1b2335]/90 border border-[#a1a1a1]/30 rounded-xl p-10 transform duration-300 hover:shadow-2xl hover:-translate-y-1 hover:cursor-pointer'>
                             <div>
                                 {d.icon}
                             </div>
