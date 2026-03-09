@@ -76,7 +76,7 @@ Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreen
             from_name: name,
             company: company || "Não informado",
             email: email,
-            phone: phone,
+            phone: phone || "Não informado",
             phone_raw: phone_raw,
             whatsapp_link_data: encodedMessage,
             services: service,
@@ -201,7 +201,7 @@ Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreen
                             <input
                                 type="checkbox"
                                 onChange={(e) => setCheck(e.target.checked)}
-                                value={check}
+                                checked={check}
                             />
                             <span className='text-[#b7bac0] text-md'>Aceito ser contatado por WhatsApp no telefone informado.</span>
                         </div>
