@@ -5,7 +5,10 @@ function Pricing() {
     return (
         <>
             <section id='Pricing' className='scroll-mt-14 min-h-min bg-[#0a101d] py-20 px-7'>
-                <div className='space-y-1 mb-20 text-center'>
+                <div className='space-y-1 mb-20 text-center'
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                >
                     <p className='text-[#b7bac0] text-md lg:text-sm uppercase font-semibold'>PRICING</p>
                     <p className='text-4xl lg:text-5xl text-white font-bold'>Flexible Engagement Models</p>
                     <p className='text-[#b7bac0] text-lg pt-5'>Every project is unique. Let's discuss your needs.</p>
@@ -14,7 +17,10 @@ function Pricing() {
                 <article className='px-5 lg:px-10 space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-10'>
 
                     {data.map((d) => (
-                        <div className='group bg-[#1b2335]/90 border border-[#a1a1a1]/30 rounded-xl px-10 py-5 transform duration-1000 hover:shadow-2xl hover:-translate-y-1 space-y-5'>
+                        <div className='group bg-[#1b2335]/90 border border-[#a1a1a1]/30 rounded-xl px-10 py-5 transform duration-1000 hover:shadow-2xl hover:-translate-y-1 space-y-5'
+                            data-aos="fade-up"
+                            data-aos-duration="1500"
+                        >
                             <h1 className='text-white text-2xl pt-5 font-semibold'>{d.titulo}</h1>
                             <p className='text-[#b7bac0] text-lg'>{d.descricao}</p>
                             <div className=''>

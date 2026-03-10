@@ -27,14 +27,20 @@ function Feedback() {
     return (
         <>
             <section id='Feedback' className='min-h-min bg-[#0F172A] py-20 px-7'>
-                <div className='space-y-2 mb-20 text-center'>
+                <div className='space-y-2 mb-20 text-center'
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                >
                     <p className='text-[#b7bac0] text-md lg:text-sm uppercase font-semibold'>CLIENT FEEDBACK</p>
                     <h1 className='text-4xl lg:text-5xl text-white font-bold'>What Our Clients Say</h1>
                 </div>
 
                 <Slider ref={sliderRef} {...settings} className='lg:px-60 lg:flex lg:text-center'>
                     {data.map((d, idx) => (
-                        <div key={idx} className='border border-white bg-[#1b2335] p-10 rounded-xl'>
+                        <div key={idx} className='border border-white bg-[#1b2335] p-10 rounded-xl'
+                            data-aos="fade-up"
+                            data-aos-duration="1000"
+                        >
                             <p className='text-[#e9e9eb] italic text-2xl lg:text-xl lg:text-justify'>{d.descricao}</p>
                             <div className='text-center text-white pt-8 lg:text-start'>
                                 <h6 className='text-xl font-semibold lg:text-lg'>{d.nome}</h6>

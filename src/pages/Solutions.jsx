@@ -5,14 +5,20 @@ function Solutions() {
     return (
         <>
             <section id='Solutions' className="scroll-mt-14 bg-plus-pattern bg-[#0F172A] min-h-auto text-white px-5 lg:px-20 pt-20 pb-10">
-                <div className='space-y-2 mb-15'>
+                <div className='space-y-2 mb-15'
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                >
                     <p className='text-[#b7bac0] text-md'>OUR PROCESS</p>
                     <h1 className='text-4xl text-white font-bold'>From Concept to Launch</h1>
                 </div>
 
                 <div className='flex flex-col lg:flex-row space-y-15 lg:space-y-0 lg:gap-15'>
                     {data.map((d) => (
-                        <div className='space-y-4'>
+                        <div className='space-y-4'
+                            data-aos="fade-up"
+                            data-aos-duration="1500"
+                        >
                             <div className='relative'>
                                 <div className='hidden lg:block absolute bg-white/20 w-full h-0.5 mt-8.5' />
                                 <p className='lg:relative w-min bg-[#0F172A] text-white font-bold text-3xl border p-4 rounded-full'>{d.number}</p>

@@ -63,7 +63,7 @@ function Contact() {
         // ${name} = nome do cliente
         // ${service} = tipo de serviço escolhido
         const messageText =
-        `Olá ${name},
+            `Olá ${name},
 
 Somos a equipe da *Cronx*. Recebemos sua mensagem referente ao seu interesse em ${service_label[service]}. 
 
@@ -117,14 +117,20 @@ Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreen
             <section id='Contact' className='scroll-mt-14 min-h-min bg-[#0F172A] pt-20 pb-10 px-5 lg:px-20 lg:grid lg:grid-cols-3'>
 
                 <div className='lg:col-span-1 lg:mr-auto'>
-                    <div className='space-y-2 lg:space-y-10 mb-20 lg:mb-10 text-center lg:text-left'>
+                    <div className='space-y-2 lg:space-y-10 mb-20 lg:mb-10 text-center lg:text-left'
+                        data-aos="fade-up"
+                        data-aos-duration="1000"
+                    >
                         <h1 className='text-4xl text-white font-bold'>Let's Build Something Great</h1>
                         <p className='text-[#b7bac0] text-lg'>Tell us about your project and we'll get back within 24 hours.</p>
                     </div>
 
                     <div className='space-y-5 lg:flex lg:flex-col'>
                         {data.map((d) => (
-                            <div className='flex items-center space-x-5 text-white'>
+                            <div className='flex items-center space-x-5 text-white'
+                                data-aos="fade-up"
+                                data-aos-duration="1500"
+                            >
                                 {d.icon}
                                 <div className=''>
                                     <p className='text-[#b7bac0] text-md'>{d.typeContact}</p>
@@ -137,7 +143,10 @@ Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreen
 
                 <div className='lg:col-span-2 lg:pl-10'>
 
-                    <form onSubmit={sendEmail} className='mt-10 lg:mt-0 space-y-5'>
+                    <form onSubmit={sendEmail} className='mt-10 lg:mt-0 space-y-5'
+                        data-aos="fade-up"
+                        data-aos-duration="1500"
+                    >
                         <div className='space-y-5 lg:space-y-0 lg:flex lg:gap-5'>
                             <input
                                 className='w-full p-5 lg:px-5 lg:p-3 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl lg:text-lg rounded-xl'
@@ -216,13 +225,10 @@ Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreen
                                     {sending ? 'Sending...' : 'Request a Proposal'}
                                 </span>
                             </button>
+                            <span className='flex justify-center text-[#b7bac0]/80 pt-3 lg:text-sm'>We respect your privacy. No spam, ever.</span>
                         </div>
                     </form>
 
-                </div>
-
-                <div className='pt-4'>
-                    <span className='flex justify-center text-[#b7bac0]/80 pt-3 lg:text-sm'>We respect your privacy. No spam, ever.</span>
                 </div>
 
             </section >

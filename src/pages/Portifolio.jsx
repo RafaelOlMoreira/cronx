@@ -8,14 +8,20 @@ import { HiArrowSmRight } from "react-icons/hi";
 function Portifolio() {
     return (
         <section id='Portifolio' className='scroll-mt-14 min-h-min bg-linear-to-b from-[#0F172A] to-black px-5 pt-20 pb-10 text-center'>
-            <div className='space-y-2 mb-20'>
+            <div className='space-y-2 mb-20'
+                data-aos="fade-up"
+                data-aos-duration="1000"
+            >
                 <p className='text-[#b7bac0] text-md uppercase'>FEATURED WORK</p>
                 <h1 className='text-4xl lg:text-5xl text-white font-bold'>Projects That Deliver</h1>
             </div>
 
             <div className='space-y-15 lg:text-center lg:gap-x-15 lg:mx-16 lg:grid lg:grid-cols-2'>
                 {data.map((d) => (
-                    <div className='group/card text-start hover:cursor-pointer'>
+                    <div className='group/card text-start hover:cursor-pointer'
+                            data-aos="fade-up"
+                            data-aos-duration="1500"
+                        >
                         <div>{d.image}</div>
                         <p className='text-[#b7bac0] text-md pt-5'>{d.typeService}</p>
                         <h1 className='text-2xl text-white font-bold'>{d.companyName}</h1>
