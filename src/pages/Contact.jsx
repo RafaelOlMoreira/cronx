@@ -114,15 +114,15 @@ Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreen
 
     return (
         <>
-            <section id='Contact' className='scroll-mt-14 min-h-min bg-[#0F172A] pt-20 pb-10 px-5 lg:px-20 lg:grid lg:grid-cols-3'>
+            <section id='Contato' className='scroll-mt-14 min-h-min bg-[#0F172A] pt-20 pb-10 px-5 lg:px-20 lg:grid lg:grid-cols-3'>
 
                 <div className='lg:col-span-1 lg:mr-auto'>
                     <div className='space-y-2 lg:space-y-10 mb-20 lg:mb-10 text-center lg:text-left'
                         data-aos="fade-up"
                         data-aos-duration="1000"
                     >
-                        <h1 className='text-4xl text-white font-bold'>Let's Build Something Great</h1>
-                        <p className='text-[#b7bac0] text-lg'>Tell us about your project and we'll get back within 24 hours.</p>
+                        <h1 className='text-4xl text-white font-bold'>Vamos Construir Algo Incrível</h1>
+                        <p className='text-[#b7bac0] text-lg'>Conte-nos sobre seu projeto e retornaremos em até 24 horas.</p>
                     </div>
 
                     <div className='space-y-5 lg:flex lg:flex-col'>
@@ -151,14 +151,14 @@ Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreen
                             <input
                                 className='w-full p-5 lg:px-5 lg:p-3 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl lg:text-lg rounded-xl'
                                 type="text"
-                                placeholder='Your Name *'
+                                placeholder='Seu Nome *'
                                 onChange={(e) => setName(e.target.value)}
                                 value={name}
                             />
                             <input
                                 className='w-full p-5 lg:px-5 lg:p-3 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl lg:text-lg rounded-xl'
                                 type="text"
-                                placeholder='Company Name'
+                                placeholder='Nome da Empresa'
                                 onChange={(e) => setCompany(e.target.value)}
                                 value={company}
                             />
@@ -168,14 +168,14 @@ Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreen
                             <input
                                 className='w-full p-5 lg:px-5 lg:p-3 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl lg:text-lg rounded-xl'
                                 type="email"
-                                placeholder='Email Address *'
+                                placeholder='Endereço de E-mail *'
                                 onChange={(e) => setEmail(e.target.value)}
                                 value={email}
                             />
                             <input
                                 className='w-full p-5 lg:px-5 lg:p-3 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl lg:text-lg rounded-xl'
                                 type="tel"
-                                placeholder='Phone (Optional)'
+                                placeholder='Telefone (Opcional)'
                                 onChange={(e) => setPhone(formatPhone(e.target.value))}
                                 value={phone}
                             />
@@ -187,11 +187,11 @@ Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreen
                             value={service}
                             name="selectService"
                         >
-                            <option value="" disabled className='select-none text-white text-sm bg-[#0F172A]'>Select Service Type *</option>
-                            <option value="custom_software" className='text-white text-sm bg-[#0F172A]'>Custom Software</option>
+                            <option value="" disabled className='select-none text-white text-sm bg-[#0F172A]'>Selecione o Tipo de Serviço *</option>
+                            <option value="custom_software" className='text-white text-sm bg-[#0F172A]'>Software Customizado</option>
                             <option value="landing_page" className='text-white text-sm bg-[#0F172A]'>Landing Page</option>
                             <option value="ecommerce" className='text-white text-sm bg-[#0F172A]'>E-commerce</option>
-                            <option value="other" className='text-white text-sm bg-[#0F172A]'>Other</option>
+                            <option value="other" className='text-white text-sm bg-[#0F172A]'>Outro</option>
                         </select>
 
                         <div>
@@ -199,11 +199,11 @@ Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreen
                                 className='w-full resize-none p-5 border border-[#b7bac0]/50 placeholder:text-[#b7bac0]/80 text-white text-xl rounded-xl'
                                 maxLength={MAX}
                                 rows={6}
-                                placeholder='Tell us about your project *'
+                                placeholder='Fale sobre o seu projeto *'
                                 onChange={(e) => setMessage(e.target.value)}
                                 value={message}
                             ></textarea>
-                            <div className={`py-2 lg:text-sm ${counterColor}`}>{message.length}/{MAX} characters</div>
+                            <div className={`py-2 lg:text-sm ${counterColor}`}>{message.length}/{MAX} caracteres</div>
                         </div>
 
                         <div className='flex items-center space-x-2'>
@@ -222,10 +222,10 @@ Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreen
                                 disabled={sending}
                             >
                                 <span className='font-bold'>
-                                    {sending ? 'Sending...' : 'Request a Proposal'}
+                                    {sending ? 'Enviando...' : 'Solicitar Proposta'}
                                 </span>
                             </button>
-                            <span className='flex justify-center text-[#b7bac0]/80 pt-3 lg:text-sm'>We respect your privacy. No spam, ever.</span>
+                            <span className='flex justify-center text-[#b7bac0]/80 pt-3 lg:text-sm'>Respeitamos sua privacidade. Sem spam, jamais.</span>
                         </div>
                     </form>
 
@@ -239,7 +239,7 @@ Agradecemos o contato e gostaríamos de agendar uma breve reunião para compreen
 const data = [
     {
         icon: <HiOutlinePhone className='size-6' />,
-        typeContact: `Phone`,
+        typeContact: `Telefone`,
         contact: `+55 31 99247-9530`,
     },
     {
@@ -249,7 +249,7 @@ const data = [
     },
     {
         icon: <HiOutlineLocationMarker className='size-6' />,
-        typeContact: `Location`,
+        typeContact: `Localização`,
         contact: `Belo Horizonte, MG, Brazil`,
     },
 ]

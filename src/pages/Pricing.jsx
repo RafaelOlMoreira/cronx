@@ -4,14 +4,14 @@ import { HiCheck } from "react-icons/hi";
 function Pricing() {
     return (
         <>
-            <section id='Pricing' className='scroll-mt-14 min-h-min bg-[#0a101d] py-20 px-7'>
+            <section id='Precos' className='scroll-mt-14 min-h-min bg-[#0a101d] py-20 px-7'>
                 <div className='space-y-1 mb-20 text-center'
                     data-aos="fade-up"
                     data-aos-duration="1000"
                 >
-                    <p className='text-[#b7bac0] text-md lg:text-sm uppercase font-semibold'>PRICING</p>
-                    <p className='text-4xl lg:text-5xl text-white font-bold'>Flexible Engagement Models</p>
-                    <p className='text-[#b7bac0] text-lg pt-5'>Every project is unique. Let's discuss your needs.</p>
+                    <p className='text-[#b7bac0] text-md lg:text-sm uppercase font-semibold'>PREÇOS</p>
+                    <p className='text-4xl lg:text-5xl text-white font-bold'>Modelos de Contratação Flexíveis</p>
+                    <p className='text-[#b7bac0] text-lg pt-5'>Cada projeto é único. Vamos conversar sobre suas necessidades.</p>
                 </div>
 
                 <article className='px-5 lg:px-10 space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-10'>
@@ -33,7 +33,7 @@ function Pricing() {
                             </div>
                             <div className='pb-5'>
                                 <button className='border border-white p-3 text-md text-white w-full rounded-lg hover:cursor-pointer transition duration-300 hover:bg-white hover:text-black'>
-                                    <a href='#Contact' className=''>Contact for Pricing</a>
+                                    <a href='#Contato' className=''>Consultar Preço</a>
                                 </button>
                             </div>
                         </div>
@@ -47,28 +47,28 @@ function Pricing() {
 
 const data = [
     {
-        titulo: `Fixed Scope`,
-        descricao: `Defined deliverables with predictable timeline and budget. Perfect for well-defined projects.`,
-        topico1: `Clear project Scope`,
-        topico2: `Fixed timeline`,
-        topico3: `Milestone-based payments`,
-        topico4: `Dedicated project manager`,
+        titulo: `Escopo Fixo`,
+        descricao: `Entregas definidas com prazo e orçamento previsíveis. Ideal para projetos bem delimitados.`,
+        topico1: `Escopo de projeto claro`,
+        topico2: `Prazo fixo`,
+        topico3: `Pagamentos por etapas`,
+        topico4: `Gerente de projeto dedicado`,
     },
     {
         titulo: `Retainer`,
-        descricao: `Ongoing development support with flexible monthly hours. Ideal for continuous improvement.`,
-        topico1: `Monthly hour allocation`,
-        topico2: `Priority support`,
-        topico3: `Flexible scope adjustments`,
-        topico4: `Regular sprint cycles`,
+        descricao: `Suporte de desenvolvimento contínuo com horas mensais flexíveis. Ideal para melhorias constantes.`,
+        topico1: `Banco de horas mensais`,
+        topico2: `Suporte prioritário`,
+        topico3: `Ajuste de escopo flexíveis`,
+        topico4: `Ciclos de sprint regulares`,
     },
     {
-        titulo: `Custom`,
-        descricao: `Tailored engagement model designed specifically for your unique business requirements.`,
-        topico1: `Fully customized approach`,
-        topico2: `Scalable team size`,
-        topico3: `Flexible payment terms`,
-        topico4: `Enterprise-level support`,
+        titulo: `Personalizado`,
+        descricao: `Modelo de contratação totalmente adaptado às necessidades únicas do seu negócio.`,
+        topico1: `Abordagem totalmente customizada`,
+        topico2: `Equipe escalável`,
+        topico3: `Condições de pagamento flexíveis`,
+        topico4: `Suporte de nível enterprise`,
     },
 ]
 

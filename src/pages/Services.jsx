@@ -6,15 +6,15 @@ import { GrTemplate } from "react-icons/gr";
 function Services() {
     return (
         <>
-            <section id='Services' className='scroll-mt-14 bg-[#0f172a] px-5 pt-20 pb-10'>
+            <section id='Servicos' className='scroll-mt-14 bg-[#0f172a] px-5 pt-20 pb-10'>
 
                 <div
                     data-aos="fade-up"
                     data-aos-duration="1000"
-                    className='text-center space-y-5'>
-                    <p className='uppercase text-[#b7bac0] text-lg'>What We Do</p>
-                    <h1 className='text-4xl lg:text-5xl text-white font-bold'>Services Built for Scale</h1>
-                    <p className='text-[#b7bac0] text-lg px-10'>End-to-end software solutions tailored to your business goals.</p>
+                    className='text-center space-y-2'>
+                    <p className='uppercase text-[#b7bac0] text-lg'>O QUE FAZEMOS</p>
+                    <h1 className='text-4xl lg:text-5xl text-white font-bold pb-2'>Serviços Feitos para Escalar</h1>
+                    <p className='text-[#b7bac0] text-lg px-10'>Soluções de software completas, adaptadas aos seus objetivos de negócio.</p>
                 </div>
 
                 <article
@@ -42,18 +42,18 @@ function Services() {
 const data = [
     {
         icon: <RiCodeView className='h-15 w-15 transform duration-300 group-hover:rotate-12' />,
-        title: `Custom Software`,
-        description: `Bespoke applications designed to solve your unique challenges and scale with your business growth.`,
+        title: `Software Personalizado`,
+        description: `Aplicações sob medida para resolver seus desafios únicos e escalar junto com o crescimento do seu negócio.`,
     },
     {
         icon: <GrTemplate className='w-12 h-12 transform duration-300 group-hover:rotate-12' />,
         title: `Landing Pages`,
-        description: `High-converting landing pages that capture attention and drive measurable business results.`,
+        description: `Páginas de alta conversão que capturam atenção e geram resultados mensuráveis para o seu negócio.`,
     },
     {
         icon: <RiStore2Line className='h-15 w-15 transform duration-300 group-hover:rotate-12' />,
-        title: `E-commerce Platforms`,
-        description: `Complete online stores with seamless checkout experiences and powerful inventory management.`,
+        title: `Plataformas E-commerce`,
+        description: `Lojas virtuais completas com experiências de checkout fluidas e gestão de estoque poderosa.`,
     }
 ]
 

@@ -12,8 +12,8 @@ function Portifolio() {
                 data-aos="fade-up"
                 data-aos-duration="1000"
             >
-                <p className='text-[#b7bac0] text-md uppercase'>FEATURED WORK</p>
-                <h1 className='text-4xl lg:text-5xl text-white font-bold'>Projects That Deliver</h1>
+                <p className='text-[#b7bac0] text-md uppercase'>TRABALHOS EM DESTAQUE</p>
+                <h1 className='text-4xl lg:text-5xl text-white font-bold'>Projetos que Entregam Resultados</h1>
             </div>
 
             <div className='space-y-15 lg:text-center lg:gap-x-15 lg:mx-16 lg:grid lg:grid-cols-2'>

@@ -30,21 +30,21 @@ function Header() {
     return (
         <>
             <header className='fixed z-3000 flex items-center w-full bg-black/90 px-5 md:px-10 xl:px-20 justify-between'>
-                <a href="#Home">
+                <a href="#Inicio">
                     <img src={Logo} className='h-15' />
                 </a>
                 <div className='hidden lg:flex w-full'>
                     <ul className='flex w-full items-center gap-10 justify-center text-white text-md'>
-                        <li><a className='hover:cursor-pointer' href='#Home'>Home</a></li>
-                        <li><a className='hover:cursor-pointer' href='#Services'>Services</a></li>
-                        <li><a className='hover:cursor-pointer' href='#Solutions'>Solutions</a></li>
-                        <li><a className='hover:cursor-pointer' href='#Portifolio'>Portifolio</a></li>
-                        <li><a className='hover:cursor-pointer' href='#Pricing'>Pricing</a></li>
-                        <li><a className='hover:cursor-pointer' href='#About'>About</a></li>
-                        <li><a className='hover:cursor-pointer' href='#Contact'>Contact</a></li>
+                        <li><a className='hover:cursor-pointer' href='#Inicio'>Início</a></li>
+                        <li><a className='hover:cursor-pointer' href='#Servicos'>Serviços</a></li>
+                        <li><a className='hover:cursor-pointer' href='#Solucoes'>Soluções</a></li>
+                        <li><a className='hover:cursor-pointer' href='#Portifolio'>Portifólio</a></li>
+                        <li><a className='hover:cursor-pointer' href='#Precos'>Preços</a></li>
+                        <li><a className='hover:cursor-pointer' href='#Contato'>Contato</a></li>
+                        <li><a className='hover:cursor-pointer' href='#Sobre'>Sobre</a></li>
                     </ul>
-                    <a href="#Contact" className='mr-auto bg-white p-2 px-12 rounded-lg transition duration-300 hover:scale-105 hover:cursor-pointer'>
-                        <span className='text-black text-md text-nowrap'>Get a Quote</span>
+                    <a href="#Contato" className='mr-auto bg-white p-2 px-8 rounded-lg transition duration-300 hover:scale-105 hover:cursor-pointer'>
+                        <span className='text-black text-md text-nowrap'>Solicitar Orçamento</span>
                     </a>
                 </div>
                 <button
@@ -63,16 +63,16 @@ function Header() {
             <div ref={overlayRef} className={`fixed inset-0 z-2000 bg-black/95 transition duration-300 ${navMenuAberto ? "opacity-100 pointer-events-auto fixed" : "hidden pointer-events-none"}`}>
                 <div className="flex justify-center h-screen items-center transform transition-transform duration-300">
                     <ul className='text-white text-center space-y-7 text-xl'>
-                        <li><a className='hover:cursor-pointer' href='#Home' onClick={toggleMenu}>Home</a></li>
-                        <li><a className='hover:cursor-pointer' href='#Services' onClick={toggleMenu}>Services</a></li>
-                        <li><a className='hover:cursor-pointer' href='#Solutions' onClick={toggleMenu}>Solutions</a></li>
-                        <li><a className='hover:cursor-pointer' href='#Portifolio' onClick={toggleMenu}>Portifolio</a></li>
-                        <li><a className='hover:cursor-pointer' href='#Pricing' onClick={toggleMenu}>Pricing</a></li>
-                        <li><a className='hover:cursor-pointer' href='#About' onClick={toggleMenu}>About</a></li>
-                        <li><a className='hover:cursor-pointer' href='#Contact' onClick={toggleMenu}>Contact</a></li>
+                        <li><a className='hover:cursor-pointer' href='#Inicio' onClick={toggleMenu}>Inicio</a></li>
+                        <li><a className='hover:cursor-pointer' href='#Servicos' onClick={toggleMenu}>Serviços</a></li>
+                        <li><a className='hover:cursor-pointer' href='#Solucoes' onClick={toggleMenu}>Soluções</a></li>
+                        <li><a className='hover:cursor-pointer' href='#Portifolio' onClick={toggleMenu}>Portifólio</a></li>
+                        <li><a className='hover:cursor-pointer' href='#Precos' onClick={toggleMenu}>Preços</a></li>
+                        <li><a className='hover:cursor-pointer' href='#Contato' onClick={toggleMenu}>Contato</a></li>
+                        <li><a className='hover:cursor-pointer' href='#Sobre' onClick={toggleMenu}>Sobre</a></li>
                         <li>
-                            <a href="#Contact" onClick={toggleMenu} className='text-center bg-white p-4 px-20 rounded-lg transition duration-300 hover:scale-105 hover:cursor-pointer'>
-                                <span className='text-black text-lg'>Get a Quote</span>
+                            <a href="#Contato" onClick={toggleMenu} className='text-center bg-white p-4 px-20 rounded-lg transition duration-300 hover:scale-105 hover:cursor-pointer'>
+                                <span className='text-black text-lg'>Solicitar Orçamento</span>
                             </a>
                         </li>
                     </ul>

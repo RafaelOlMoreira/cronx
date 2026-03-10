@@ -8,12 +8,12 @@ import { IoLogoWhatsapp } from "react-icons/io5";
 function Footer() {
     return (
         <>
-            <footer id='About' className='scroll-mt-14 min-h-min bg-black pt-20 pb-10 px-7'>
+            <footer id='Sobre' className='scroll-mt-14 min-h-min bg-black pt-20 pb-10 px-7'>
 
                 <div className='lg:grid lg:grid-cols-3 lg:pb-10 lg:px-10'>
                     <div className='space-y-5 lg:space-y-0 lg:col-span-1'>
                         <img src={Logo} className='h-15 w-15' />
-                        <p className='text-[#b7bac0] text-lg'>Enterprise software solutions.</p>
+                        <p className='text-[#b7bac0] text-lg'>Soluções de software empresarial.</p>
 
                         <div className='flex py-5 space-x-5'>
                             <a href="https://www.instagram.com/cronx.oficial">
@@ -27,19 +27,19 @@ function Footer() {
 
                     <div className='space-y-10 py-10 lg:space-y-0 lg:py-0'>
                         <ul className='text-[#b7bac0] text-lg space-y-3'>
-                            <h6 className='text-white text-xl font-semibold'>Quick Links</h6>
-                            <li className='w-min text-nowrap hover:cursor-pointer hover:text-white transition-all duration-300'><a href="#Services">Services</a></li>
-                            <li className='w-min text-nowrap hover:cursor-pointer hover:text-white transition-all duration-300'><a href="#Solutions">Solutions</a></li>
-                            <li className='w-min text-nowrap hover:cursor-pointer hover:text-white transition-all duration-300'><a href="#Portifolio">Portifolio</a></li>
-                            <li className='w-min text-nowrap hover:cursor-pointer hover:text-white transition-all duration-300'><a href="#Pricing">Pricing</a></li>
-                            <li className='w-min text-nowrap hover:cursor-pointer hover:text-white transition-all duration-300'><a href="#About">About</a></li>
-                            <li className='w-min text-nowrap hover:cursor-pointer hover:text-white transition-all duration-300'><a href="#Contact">Contact</a></li>
+                            <h6 className='text-white text-xl font-semibold'>Links Rápidos</h6>
+                            <li className='w-min text-nowrap hover:cursor-pointer hover:text-white transition-all duration-300'><a href="#Services">Serviços</a></li>
+                            <li className='w-min text-nowrap hover:cursor-pointer hover:text-white transition-all duration-300'><a href="#Solucoes">Soluções</a></li>
+                            <li className='w-min text-nowrap hover:cursor-pointer hover:text-white transition-all duration-300'><a href="#Portifolio">Portifólio</a></li>
+                            <li className='w-min text-nowrap hover:cursor-pointer hover:text-white transition-all duration-300'><a href="#Precos">Preços</a></li>
+                            <li className='w-min text-nowrap hover:cursor-pointer hover:text-white transition-all duration-300'><a href="#Sobre">Sobre</a></li>
+                            <li className='w-min text-nowrap hover:cursor-pointer hover:text-white transition-all duration-300'><a href="#Contato">Contato</a></li>
                         </ul>
                     </div>
 
                     <div className='space-y-10 pb-10 lg:space-y-0 lg:pb-0'>
                         <ul className='text-[#b7bac0] text-lg space-y-3'>
-                            <h6 className='text-white text-xl font-semibold'>Get in Touch</h6>
+                            <h6 className='text-white text-xl font-semibold'>Entre em Contato</h6>
                             <li className='w-min text-nowrap hover:cursor-pointer hover:text-white transition-all duration-300'>cronx.oficial@gmail.com</li>
                             <li className='w-min text-nowrap hover:cursor-pointer hover:text-white transition-all duration-300'>+55 31 99247-9530</li>
                             <li>Belo Horizonte, MG, Brazil</li>
@@ -50,11 +50,11 @@ function Footer() {
                 <hr className='flex text-[#b7bac0]/20' />
 
                 <div className='space-y-3 lg:flex lg:justify-between lg:pt-5 lg:px-20'>
-                    <span className='flex justify-center pt-3 lg:pt-0 text-[#b7bac0] text-md'>&copy; 2026 CRONX. All rights reserved.</span>
+                    <span className='flex justify-center pt-3 lg:pt-0 text-[#b7bac0] text-md'>&copy; 2026 CRONX. Todos os direitos reservados.</span>
                     <ul className='flex justify-center text-[#b7bac0] gap-3 lg:gap-10'>
-                        <li className='hover:cursor-pointer hover:text-white transition-all duration-300'>Privacy Policy</li>
-                        <li className='hover:cursor-pointer hover:text-white transition-all duration-300'>Terms Of Service</li>
-                        <li className='hover:cursor-pointer hover:text-white transition-all duration-300'>Powered By Readdy</li>
+                        <li className='hover:cursor-pointer hover:text-white transition-all duration-300'>Política de Privacidade</li>
+                        <li className='hover:cursor-pointer hover:text-white transition-all duration-300'>Termos de Uso</li>
+                        <li className='hover:cursor-pointer hover:text-white transition-all duration-300'>Termos de Contrato</li>
                     </ul>
                 </div>
             </footer>

@@ -4,13 +4,13 @@ function Solutions() {
 
     return (
         <>
-            <section id='Solutions' className="scroll-mt-14 bg-plus-pattern bg-[#0F172A] min-h-auto text-white px-5 lg:px-20 pt-20 pb-10">
+            <section id='Solucoes' className="scroll-mt-14 bg-plus-pattern bg-[#0F172A] min-h-auto text-white px-5 lg:px-20 pt-20 pb-10">
                 <div className='space-y-2 mb-15'
                     data-aos="fade-up"
                     data-aos-duration="1000"
                 >
-                    <p className='text-[#b7bac0] text-md'>OUR PROCESS</p>
-                    <h1 className='text-4xl text-white font-bold'>From Concept to Launch</h1>
+                    <p className='text-[#b7bac0] text-md'>NOSSO PROCESSO</p>
+                    <h1 className='text-4xl text-white font-bold'>Do Conceito ao Lançamento</h1>
                 </div>
 
                 <div className='flex flex-col lg:flex-row space-y-15 lg:space-y-0 lg:gap-15'>
@@ -37,23 +37,23 @@ function Solutions() {
 const data = [
     {
         number: `01`,
-        title: `Discovery`,
-        description: `We analyze your needs and define clear objectives for your project.`,
+        title: `Descoberta`,
+        description: `Analisamos suas necessidades e definimos objetivos claros para o seu projeto.`,
     },
     {
         number: `02`,
         title: `Design`,
-        description: `Creating intuitive interfaces and robust architecture blueprints.`,
+        description: `Criamos interfaces intuitivas e blueprints de arquitetura robustos.`,
     },
     {
         number: `03`,
-        title: `Build`,
-        description: `Agile development with continuous testing and quality assurance.`,
+        title: `Desenvolvimento`,
+        description: `Desenvolvimento ágil com testes contínuos e garantia de qualidade.`,
     },
     {
         number: `04`,
-        title: `Support`,
-        description: `Ongoing maintenance, updates, and dedicated technical support.`,
+        title: `Suporte`,
+        description: `Manutenção contínua, atualizações e suporte técnico dedicado.`,
     },
 ]
 

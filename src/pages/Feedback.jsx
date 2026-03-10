@@ -31,8 +31,8 @@ function Feedback() {
                     data-aos="fade-up"
                     data-aos-duration="1000"
                 >
-                    <p className='text-[#b7bac0] text-md lg:text-sm uppercase font-semibold'>CLIENT FEEDBACK</p>
-                    <h1 className='text-4xl lg:text-5xl text-white font-bold'>What Our Clients Say</h1>
+                    <p className='text-[#b7bac0] text-md lg:text-sm uppercase font-semibold'>OPINIÃO DOS CLIENTES</p>
+                    <h1 className='text-4xl lg:text-5xl text-white font-bold'>O Que Nossos Clientes Dizem</h1>
                 </div>
 
                 <Slider ref={sliderRef} {...settings} className='lg:px-60 lg:flex lg:text-center'>
@@ -78,17 +78,17 @@ function Feedback() {
 
 const data = [
     {
-        descricao: `"CRONX transformed our operations with a custom ERP system that perfectly fits our workflow. The team was professional, responsive, and delivered beyond our expectations."`,
+        descricao: `"A CRONX transformou nossas operações com um sistema ERP personalizado que se encaixa perfeitamente no nosso fluxo de trabalho. A equipe foi profissional, ágil e entregou além das nossas expectativas."`,
         nome: `Carlos Silva`,
         empresa: `CTO, LogiTech Solutions`,
     },
     {
-        descricao: `"Our new e-commerce platform has exceeded all performance targets. CRONX delivered a scalable solution that handles our growing customer base with ease."`,
+        descricao: `"Nossa nova plataforma de e-commerce superou todas as metas de desempenho. A CRONX entregou uma solução escalável que suporta nossa base crescente de clientes com facilidade."`,
         nome: `Marina Costa`,
         empresa: `CEO, Bella Fashion`,
     },
     {
-        descricao: `"The landing page CRONX created for our product launch generated a 40% increase in qualified leads. Their attention to detail and conversion optimization is outstanding."`,
+        descricao: `"A landing page criada pela CRONX para o lançamento do nosso produto gerou um aumento de 40% em leads qualificados. A atenção aos detalhes e a otimização de conversão são excepcionais."`,
         nome: `Roberto Mendes`,
         empresa: `Marketing Director, TechFlow`,
     }
